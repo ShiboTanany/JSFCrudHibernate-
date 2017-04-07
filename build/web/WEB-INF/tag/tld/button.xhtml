@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:body>
+        <ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                        xmlns:h="http://java.sun.com/jsf/html"  
+                        xmlns:f="http://java.sun.com/jsf/core"  
+                        xmlns:ui="http://java.sun.com/jsf/facelets"
+                        xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                        xmlns:p="http://primefaces.org/ui" template="/templates/default/main.xhtml">
+            <ui:define name="content">                        
+                <h1 class="page-header "> <i class="fa fa-tachometer"></i>
+                  
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+                                <div class="account-wall">
+                                    <h1 class="text-center login-title">Sign in </h1>
+                                    <!-- <h:graphicImage  
+                                         value = "https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"/> 
+                                    <h:graphicImage   name="/img/photo.png"></h:graphicImage>
+                                    -->
+                                    <h:form class="form-signin">
+                                        <h:inputText  class="form-control"  id="email"  value="#{EmailValue}"  validator= "#{personControl.validateName}" a:placeholder="enter your email" >
+                                        <f:ajax event="blur" execute="@this" render ="emailError"/>
+                                        </h:inputText>
+                                        <h3><h:message for="email" id="emailError" style="color: red" /> </h3>
+                                        <h:outputText value="&lt;br /&gt; " escape="false" />
+                                        <h:inputSecret  class="form-control"   value="#{PasswordValue}" a:placeholder="enter your password" />
+                                        <h:outputText value="&lt;br /&gt; " escape="false" />
+                                        <h:commandButton class="btn btn-lg btn-primary btn-block" action="#{action.loginUser}"  value="sign in"></h:commandButton>
+                                        <h:outputText value="&lt;br /&gt; " escape="false" />
+                                        
+
+                                        
+                                        <!--<h:commandButton value="refresh" >
+                                              <f:ajax execute="email password" render="out"/>
+          
+                                          </h:commandButton>
+                                          <h3><h:outputText id="out" value="#{person.greeting}"/></h3>
+                                        -->  <label class="checkbox pull-left">
+                                            <h:selectBooleanCheckbox  value="remember-me">remember me</h:selectBooleanCheckbox>
+                                        </label>
+
+                                        <span class="clearfix"></span>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </h1>
+            </ui:define>
+        </ui:composition>        
+
+        
+    </h:body>
+</html>
+
+
+
+               
+          
+       

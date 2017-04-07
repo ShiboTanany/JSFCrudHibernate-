@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" template="/templates/default/main.xhtml">
+
+    <ui:define name="content" rendered="#{personControl.login}">                        
+        <!-- <h1 class="page-header "> <i class="fa fa-tachometer"></i>-->
+        <center >
+            <h:form prependId="false"  id="i" >
+                <h:dataTable value="#{profile.model}"  border="1" var="product"
+                             styleClass="customers" headerClass="customersHeader"
+                             columnClasses="custid,name">
+                    <h:column>
+                        #{profile.model.rowIndex + 1}
+                    </h:column>
+                    <h:column >
+                        <f:facet name="header"></f:facet>
+                            #{product.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"></f:facet>
+                        <h:inputText value="#{product.name}" maxlength="20" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"></f:facet>
+                        <h:inputText value="#{product.category}" maxlength="20" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"></f:facet>
+                        <h:inputText value="#{product.price}" maxlength="20" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"></f:facet>
+                        <h:inputText value="#{product.qunatity}" maxlength="20"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="edit" class="btn btn-lg btn-primary btn-block" action="showProfiles" actionListener="#{profile.editProduct}" >
+                           <f:ajax render="i" execute="i"/>
+                        </h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="delete"  action="showProfiles" actionListener="#{profile.deleteProduct()}" class="btn btn-lg btn-primary btn-block">
+                            <f:ajax render="i" execute="i"/>
+                        </h:commandButton>
+                    </h:column>
+
+
+                </h:dataTable>
+            </h:form>
+            <h:form prependId="false"  id="i2" >
+                id <h:inputText value="#{profile.product.id}"/>name<h:inputText value="#{profile.product.name}"/>category<h:inputText value="#{profile.product.category}"/>price<h:inputText value="#{profile.product.price}"/>
+                <h:outputText value="&lt;br /&gt; " escape="false" />
+                qunatity<h:inputText value="#{profile.product.qunatity}"/><h:commandButton value="insert" action="showProfiles" actionListener="#{profile.addProduct}">
+                
+                </h:commandButton>
+                <!-- <h:commandButton value="Refresh" action="showProfiles" id="refBtn">
+                      <f:ajax render="i"/>
+                  </h:commandButton>-->
+            </h:form>
+        </center>
+
+        <!--</h1>-->
+    </ui:define>
+</ui:composition>        
+
